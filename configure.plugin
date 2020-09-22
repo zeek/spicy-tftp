@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# Hooks to add custom options to the configure script.
+#
+
+plugin_usage()
+{
+    cat <<EOF
+    --with-spicy=DIR           Path to Spicy installation or build root
+EOF
+}
+
+plugin_option()
+{
+    case "$1" in
+        --with-spicy=*)
+            root=${optarg}
+
+            if [ -e ${root}/bin/spicy-config ]; then
+                append_cache_entry SPICY_ROOT_DIR    PATH ${root}
+                append_cache_entry SPICY_CMAKE_PATH  PATH "$(${root}/bin/spicy-config --cmake-path)"
+            elif [ -d ${root}/runtime/share/spicy/cmake ]; then
+                append_cache_entry SPICY_RUNTIME_DIR PATH ${root}
+                append_cache_entry SPICY_CMAKE_PATH PATH "${root}/runtime/share/spicy/cmake"
+            else
+                echo "cannot find Spicy CMake configuration (root=${root})" >&2
+                exit 1
+            fi
+            ;;
+
+        *)
+            return 1;
+            ;;
+    esac
+}

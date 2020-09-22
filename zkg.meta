@@ -1,0 +1,10 @@
+[package]
+description = A Spicy-based TFTP analyzer
+tags = zeek plugin, protocol analyzer, tftp, spicy
+depends =
+    spicy-runtime *
+    zkg >=2.3.0
+
+build_command = ./configure --with-spicy=%(package_base)s/spicy-runtime && make -j
+test_command = cd tests && btest -d
+script_dir = scripts
