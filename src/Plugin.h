@@ -3,6 +3,15 @@
 
 #include <zeek/plugin/Plugin.h>
 
+#if ! (ZEEK_VERSION_NUMBER >= 30200)
+namespace zeek {
+namespace plugin {
+using ::plugin::Configuration;
+using ::plugin::Plugin;
+}
+}
+#endif
+
 namespace plugin {
 namespace Zeek_TFTP {
 
