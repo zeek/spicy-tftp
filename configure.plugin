@@ -19,6 +19,9 @@ plugin_option()
             if [ -e ${root}/bin/spicy-config ]; then
                 append_cache_entry SPICY_ROOT_DIR    PATH ${root}
                 append_cache_entry SPICY_CMAKE_PATH  PATH "$(${root}/bin/spicy-config --cmake-path)"
+            elif [ -e ${root}/build/bin/spicy-config ]; then
+                append_cache_entry SPICY_ROOT_DIR    PATH ${root}
+                append_cache_entry SPICY_CMAKE_PATH  PATH "$(${root}/build/bin/spicy-config --cmake-path)"
             elif [ -d ${root}/runtime/share/spicy/cmake ]; then
                 append_cache_entry SPICY_RUNTIME_DIR PATH ${root}
                 append_cache_entry SPICY_CMAKE_PATH PATH "${root}/runtime/share/spicy/cmake"
