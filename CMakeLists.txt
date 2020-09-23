@@ -13,7 +13,7 @@ zeek_plugin_cc(src/Plugin.cc)
 zeek_plugin_spicy(TFTP src/tftp.spicy src/tftp.evt)
 zeek_plugin_spicy(Zeek_TFTP src/zeek_tftp.spicy)
 zeek_plugin_spicy_link()
-zeek_plugin_dist_files(README CHANGES COPYING VERSION)
+zeek_plugin_dist_files(README.md CHANGES COPYING VERSION)
 zeek_plugin_end()
 
 file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/VERSION" VERSION LIMIT_COUNT 1)
