@@ -7,4 +7,5 @@ depends =
 
 build_command = ./configure --with-spicy=%(package_base)s/spicy-runtime && make -j
 test_command = cd tests && btest -d
+plugin_dir = build
 script_dir = scripts
