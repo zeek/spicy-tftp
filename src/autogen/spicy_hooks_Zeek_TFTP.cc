@@ -1,5 +1,5 @@
 // Begin of spicy_hooks_Zeek_TFTP
-// Compiled by HILTI version 0.4.0-888.dirty
+// Compiled by HILTI version 0.4.0-branch
 
 #include <hilti/rt/compiler-setup.h>
 
@@ -23,6 +23,9 @@ namespace __hlt::type_info { namespace {
     extern const hilti::rt::TypeInfo __ti_TFTP_Opcode;
     extern const hilti::rt::TypeInfo __ti_TFTP_Packet;
     extern const hilti::rt::TypeInfo __ti_TFTP_Request;
+    extern const hilti::rt::TypeInfo __ti_spicy_rt_Filters;
+    extern const hilti::rt::TypeInfo __ti_spicy_rt_SinkState;
+    extern const hilti::rt::TypeInfo __ti_strong_refx30spicy_rt_Filters;
     extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Acknowledgement;
     extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Data;
     extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Error;
@@ -46,19 +49,19 @@ namespace picy::zeek::rt {
 }
 
 namespace picy::zeek::rt {
-    extern auto event_arg_type(const ::EventHandlerPtr& handler, const hilti::rt::integer::safe<uint64_t>& idx, const std::string& location) -> ::zeek::TypePtr;
+    extern auto event_arg_type(const ::zeek::EventHandlerPtr& handler, const hilti::rt::integer::safe<uint64_t>& idx, const std::string& location) -> ::zeek::TypePtr;
 }
 
 namespace picy::zeek::rt {
-    extern auto have_handler(const ::EventHandlerPtr& handler) -> hilti::rt::Bool;
+    extern auto have_handler(const ::zeek::EventHandlerPtr& handler) -> hilti::rt::Bool;
 }
 
 namespace picy::zeek::rt {
-    extern auto internal_handler(const std::string& event) -> ::EventHandlerPtr;
+    extern auto internal_handler(const std::string& event) -> ::zeek::EventHandlerPtr;
 }
 
 namespace picy::zeek::rt {
-    extern void raise_event(const ::EventHandlerPtr& handler, const hilti::rt::Vector<::zeek::ValPtr>& args, const std::string& location);
+    extern void raise_event(const ::zeek::EventHandlerPtr& handler, const hilti::rt::Vector<::zeek::ValPtr>& args, const std::string& location);
 }
 
 namespace picy::zeek::rt {
@@ -170,15 +173,10 @@ namespace __hlt::TFTP {
         static auto parse2(hilti::rt::ValueReference<Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         auto __parse_switch_case_1_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        auto __parse_switch_case_1_stage2(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_2_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        auto __parse_switch_case_2_stage2(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_3_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        auto __parse_switch_case_3_stage2(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_4_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        auto __parse_switch_case_4_stage2(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_5_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        auto __parse_switch_case_5_stage2(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_TFTP_Packet_stage2(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         inline auto __self() { return hilti::rt::ValueReference<Packet>::self(this); }
@@ -231,7 +229,7 @@ namespace __hlt::TFTP {
     extern void __hook_Error___on_msg(const hilti::rt::Bytes& __dd, hilti::rt::ValueReference<__hlt::TFTP::Error>& __self);
     extern void __hook_Packet___on_0x25_done(hilti::rt::ValueReference<Packet>& __self);
     extern void __hook_Packet___on_0x25_done(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
-    extern void __hook_Packet___on_0x25_done_0x7ff464c37940(hilti::rt::ValueReference<Packet>& __self);
+    extern void __hook_Packet___on_0x25_done_0x7fae4c50f820(hilti::rt::ValueReference<Packet>& __self);
     extern void __hook_Packet___on_0x25_error(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_0x25_gap(const hilti::rt::integer::safe<uint64_t>& seq, const hilti::rt::integer::safe<uint64_t>& len, hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_0x25_init(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
@@ -257,12 +255,15 @@ namespace __hlt::spicy_hooks_Zeek_TFTP {
 }
 
 namespace __hlt::type_info { namespace { 
-    const hilti::rt::TypeInfo __ti_TFTP_Acknowledgement = { "TFTP::Acknowledgement", "TFTP::Acknowledgement", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Acknowledgement, num), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Data = { "TFTP::Data", "TFTP::Data", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Data, num), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "data", &hilti::rt::type_info::bytes, offsetof(TFTP::Data, data), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Error = { "TFTP::Error", "TFTP::Error", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "code", &hilti::rt::type_info::uint16, offsetof(TFTP::Error, code), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "msg", &hilti::rt::type_info::bytes, offsetof(TFTP::Error, msg), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Acknowledgement = { "TFTP::Acknowledgement", "TFTP::Acknowledgement", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Acknowledgement, num), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Data = { "TFTP::Data", "TFTP::Data", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Data, num), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "data", &hilti::rt::type_info::bytes, offsetof(TFTP::Data, data), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Error = { "TFTP::Error", "TFTP::Error", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "code", &hilti::rt::type_info::uint16, offsetof(TFTP::Error, code), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "msg", &hilti::rt::type_info::bytes, offsetof(TFTP::Error, msg), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
     const hilti::rt::TypeInfo __ti_TFTP_Opcode = { "TFTP::Opcode", "TFTP::Opcode", hilti::rt::type_info::Enum(std::vector<hilti::rt::type_info::enum_::Label>({hilti::rt::type_info::enum_::Label{ "RRQ", 1 }, hilti::rt::type_info::enum_::Label{ "WRQ", 2 }, hilti::rt::type_info::enum_::Label{ "DATA", 3 }, hilti::rt::type_info::enum_::Label{ "ACK", 4 }, hilti::rt::type_info::enum_::Label{ "ERROR", 5 }, hilti::rt::type_info::enum_::Label{ "Undef", -1 }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Packet = { "TFTP::Packet", "TFTP::Packet", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "op", &type_info::__ti_TFTP_Opcode, offsetof(TFTP::Packet, op), hilti::rt::type_info::struct_::Field::accessor_optional<TFTP::Opcode>() }, hilti::rt::type_info::struct_::Field{ "rrq", &type_info::__ti_value_refx30TFTP_Requestx2abool_is_readx2b, offsetof(TFTP::Packet, rrq), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "wrq", &type_info::__ti_value_refx30TFTP_Requestx2abool_is_readx2b, offsetof(TFTP::Packet, wrq), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "data", &type_info::__ti_value_refx30TFTP_Data, offsetof(TFTP::Packet, data), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Data>>() }, hilti::rt::type_info::struct_::Field{ "ack", &type_info::__ti_value_refx30TFTP_Acknowledgement, offsetof(TFTP::Packet, ack), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>>() }, hilti::rt::type_info::struct_::Field{ "error", &type_info::__ti_value_refx30TFTP_Error, offsetof(TFTP::Packet, error), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Error>>() }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Request = { "TFTP::Request", "TFTP::Request", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "filename", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, filename), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }, hilti::rt::type_info::struct_::Field{ "mode", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, mode), hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Packet = { "TFTP::Packet", "TFTP::Packet", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "op", &type_info::__ti_TFTP_Opcode, offsetof(TFTP::Packet, op), false, hilti::rt::type_info::struct_::Field::accessor_optional<TFTP::Opcode>() }, hilti::rt::type_info::struct_::Field{ "rrq", &type_info::__ti_value_refx30TFTP_Requestx2abool_is_readx2b, offsetof(TFTP::Packet, rrq), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "wrq", &type_info::__ti_value_refx30TFTP_Requestx2abool_is_readx2b, offsetof(TFTP::Packet, wrq), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "data", &type_info::__ti_value_refx30TFTP_Data, offsetof(TFTP::Packet, data), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Data>>() }, hilti::rt::type_info::struct_::Field{ "ack", &type_info::__ti_value_refx30TFTP_Acknowledgement, offsetof(TFTP::Packet, ack), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>>() }, hilti::rt::type_info::struct_::Field{ "error", &type_info::__ti_value_refx30TFTP_Error, offsetof(TFTP::Packet, error), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Error>>() }, hilti::rt::type_info::struct_::Field{ "__sink", &type_info::__ti_spicy_rt_SinkState, offsetof(TFTP::Packet, __sink), true }, hilti::rt::type_info::struct_::Field{ "__filters", &type_info::__ti_strong_refx30spicy_rt_Filters, offsetof(TFTP::Packet, __filters), true }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Request = { "TFTP::Request", "TFTP::Request", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "filename", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, filename), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }, hilti::rt::type_info::struct_::Field{ "mode", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, mode), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
+    const hilti::rt::TypeInfo __ti_spicy_rt_Filters = { "spicy_rt::Filters", "spicy_rt::Filters", hilti::rt::type_info::Library() };
+    const hilti::rt::TypeInfo __ti_spicy_rt_SinkState = { "spicy_rt::SinkState", "spicy_rt::SinkState", hilti::rt::type_info::Library() };
+    const hilti::rt::TypeInfo __ti_strong_refx30spicy_rt_Filters = { {}, "strong_ref<spicy_rt::Filters>", hilti::rt::type_info::StrongReference(&type_info::__ti_spicy_rt_Filters, hilti::rt::type_info::StrongReference::accessor<spicy::rt::filter::detail::Filters>()) };
     const hilti::rt::TypeInfo __ti_value_refx30TFTP_Acknowledgement = { {}, "value_ref<TFTP::Acknowledgement>", hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Acknowledgement, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Acknowledgement>()) };
     const hilti::rt::TypeInfo __ti_value_refx30TFTP_Data = { {}, "value_ref<TFTP::Data>", hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Data, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Data>()) };
     const hilti::rt::TypeInfo __ti_value_refx30TFTP_Error = { {}, "value_ref<TFTP::Error>", hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Error, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Error>()) };

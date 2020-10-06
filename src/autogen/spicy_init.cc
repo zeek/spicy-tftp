@@ -1,5 +1,5 @@
 // Begin of spicy_init
-// Compiled by HILTI version 0.4.0-888.dirty
+// Compiled by HILTI version 0.4.0-branch
 
 #include <hilti/rt/compiler-setup.h>
 
@@ -24,19 +24,19 @@ namespace picy::zeek::rt {
 }
 
 namespace picy::zeek::rt {
-    extern auto event_arg_type(const ::EventHandlerPtr& handler, const hilti::rt::integer::safe<uint64_t>& idx, const std::string& location) -> ::zeek::TypePtr;
+    extern auto event_arg_type(const ::zeek::EventHandlerPtr& handler, const hilti::rt::integer::safe<uint64_t>& idx, const std::string& location) -> ::zeek::TypePtr;
 }
 
 namespace picy::zeek::rt {
-    extern auto have_handler(const ::EventHandlerPtr& handler) -> hilti::rt::Bool;
+    extern auto have_handler(const ::zeek::EventHandlerPtr& handler) -> hilti::rt::Bool;
 }
 
 namespace picy::zeek::rt {
-    extern auto internal_handler(const std::string& event) -> ::EventHandlerPtr;
+    extern auto internal_handler(const std::string& event) -> ::zeek::EventHandlerPtr;
 }
 
 namespace picy::zeek::rt {
-    extern void raise_event(const ::EventHandlerPtr& handler, const hilti::rt::Vector<::zeek::ValPtr>& args, const std::string& location);
+    extern void raise_event(const ::zeek::EventHandlerPtr& handler, const hilti::rt::Vector<::zeek::ValPtr>& args, const std::string& location);
 }
 
 namespace picy::zeek::rt {
