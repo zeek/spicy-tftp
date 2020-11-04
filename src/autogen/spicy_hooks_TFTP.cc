@@ -29,7 +29,7 @@ namespace __hlt::type_info { namespace {
     extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Acknowledgement;
     extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Data;
     extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Error;
-    extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Requestx2abool_is_readx2b;
+    extern const hilti::rt::TypeInfo __ti_value_refx30TFTP_Request;
 } }
 
 namespace picy::zeek::rt {
@@ -87,6 +87,7 @@ namespace __hlt::TFTP {
         void __on_0x25_init();
         void __on_0x25_done();
         void __on_0x25_error();
+        auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
@@ -109,6 +110,7 @@ namespace __hlt::TFTP {
         void __on_0x25_init();
         void __on_0x25_done();
         void __on_0x25_error();
+        auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
@@ -131,6 +133,7 @@ namespace __hlt::TFTP {
         void __on_0x25_init();
         void __on_0x25_done();
         void __on_0x25_error();
+        auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
@@ -161,6 +164,7 @@ namespace __hlt::TFTP {
         void __on_0x25_init();
         void __on_0x25_done();
         void __on_0x25_error();
+        auto __str__() -> std::optional<std::string>;
         void __on_0x25_gap(const hilti::rt::integer::safe<uint64_t>& seq, const hilti::rt::integer::safe<uint64_t>& len);
         void __on_0x25_overlap(const hilti::rt::integer::safe<uint64_t>& seq, const hilti::rt::Bytes& old, const hilti::rt::Bytes& new_);
         void __on_0x25_skipped(const hilti::rt::integer::safe<uint64_t>& seq);
@@ -197,6 +201,7 @@ namespace __hlt::TFTP {
         void __on_0x25_init();
         void __on_0x25_done();
         void __on_0x25_error();
+        auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const hilti::rt::Bool& is_read) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
@@ -218,21 +223,24 @@ namespace __hlt::TFTP {
     extern void __hook_Acknowledgement___on_0x25_error(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& __self);
     extern void __hook_Acknowledgement___on_0x25_init(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& __self);
     extern void __hook_Acknowledgement___on_num(const hilti::rt::integer::safe<uint16_t>& __dd, hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& __self);
+    extern auto __hook_Acknowledgement___str__(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& __self) -> std::optional<std::string>;
     extern void __hook_Data___on_0x25_done(hilti::rt::ValueReference<TFTP::Data>& __self);
     extern void __hook_Data___on_0x25_done(hilti::rt::ValueReference<__hlt::TFTP::Data>& __self);
     extern void __hook_Data___on_0x25_error(hilti::rt::ValueReference<__hlt::TFTP::Data>& __self);
     extern void __hook_Data___on_0x25_init(hilti::rt::ValueReference<__hlt::TFTP::Data>& __self);
     extern void __hook_Data___on_data(const hilti::rt::Bytes& __dd, hilti::rt::ValueReference<__hlt::TFTP::Data>& __self);
     extern void __hook_Data___on_num(const hilti::rt::integer::safe<uint16_t>& __dd, hilti::rt::ValueReference<__hlt::TFTP::Data>& __self);
+    extern auto __hook_Data___str__(hilti::rt::ValueReference<__hlt::TFTP::Data>& __self) -> std::optional<std::string>;
     extern void __hook_Error___on_0x25_done(hilti::rt::ValueReference<TFTP::Error>& __self);
     extern void __hook_Error___on_0x25_done(hilti::rt::ValueReference<__hlt::TFTP::Error>& __self);
     extern void __hook_Error___on_0x25_error(hilti::rt::ValueReference<__hlt::TFTP::Error>& __self);
     extern void __hook_Error___on_0x25_init(hilti::rt::ValueReference<__hlt::TFTP::Error>& __self);
     extern void __hook_Error___on_code(const hilti::rt::integer::safe<uint16_t>& __dd, hilti::rt::ValueReference<__hlt::TFTP::Error>& __self);
     extern void __hook_Error___on_msg(const hilti::rt::Bytes& __dd, hilti::rt::ValueReference<__hlt::TFTP::Error>& __self);
+    extern auto __hook_Error___str__(hilti::rt::ValueReference<__hlt::TFTP::Error>& __self) -> std::optional<std::string>;
     extern void __hook_Packet___on_0x25_done(hilti::rt::ValueReference<Packet>& __self);
     extern void __hook_Packet___on_0x25_done(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
-    extern void __hook_Packet___on_0x25_done_0x7fae4c50f820(hilti::rt::ValueReference<Packet>& __self);
+    extern void __hook_Packet___on_0x25_done_0x7f9011527d50(hilti::rt::ValueReference<Packet>& __self);
     extern void __hook_Packet___on_0x25_error(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_0x25_gap(const hilti::rt::integer::safe<uint64_t>& seq, const hilti::rt::integer::safe<uint64_t>& len, hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_0x25_init(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
@@ -245,50 +253,52 @@ namespace __hlt::TFTP {
     extern void __hook_Packet___on_op(const TFTP::Opcode& __dd, hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_rrq(const hilti::rt::ValueReference<__hlt::TFTP::Request>& __dd, hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_wrq(const hilti::rt::ValueReference<__hlt::TFTP::Request>& __dd, hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
+    extern auto __hook_Packet___str__(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self) -> std::optional<std::string>;
     extern void __hook_Request___on_0x25_done(hilti::rt::ValueReference<TFTP::Request>& __self);
     extern void __hook_Request___on_0x25_done(hilti::rt::ValueReference<__hlt::TFTP::Request>& __self);
     extern void __hook_Request___on_0x25_error(hilti::rt::ValueReference<__hlt::TFTP::Request>& __self);
     extern void __hook_Request___on_0x25_init(hilti::rt::ValueReference<__hlt::TFTP::Request>& __self);
     extern void __hook_Request___on_filename(const hilti::rt::Bytes& __dd, hilti::rt::ValueReference<__hlt::TFTP::Request>& __self);
     extern void __hook_Request___on_mode(const hilti::rt::Bytes& __dd, hilti::rt::ValueReference<__hlt::TFTP::Request>& __self);
+    extern auto __hook_Request___str__(hilti::rt::ValueReference<__hlt::TFTP::Request>& __self) -> std::optional<std::string>;
     extern void __register_TFTP_Packet();
 }
 
 namespace __hlt::spicy_hooks_TFTP {
     struct __globals_t : hilti::rt::trait::isStruct, hilti::rt::Controllable<__globals_t> {
-        ::zeek::EventHandlerPtr __zeek_handler_tftp_read_request_0x7fae4d829800{};
-        ::zeek::EventHandlerPtr __zeek_handler_tftp_write_request_0x7fae4d829dd0{};
-        ::zeek::EventHandlerPtr __zeek_handler_tftp_data_0x7fae4d82a3a0{};
-        ::zeek::EventHandlerPtr __zeek_handler_tftp_ack_0x7fae4d82a970{};
-        ::zeek::EventHandlerPtr __zeek_handler_tftp_error_0x7fae4d82af40{};
+        ::zeek::EventHandlerPtr __zeek_handler_tftp_read_request_0x7f9012010200{};
+        ::zeek::EventHandlerPtr __zeek_handler_tftp_write_request_0x7f90120107d0{};
+        ::zeek::EventHandlerPtr __zeek_handler_tftp_data_0x7f9012010da0{};
+        ::zeek::EventHandlerPtr __zeek_handler_tftp_ack_0x7f9012011370{};
+        ::zeek::EventHandlerPtr __zeek_handler_tftp_error_0x7f9012011940{};
         template<typename F> void __visit(F _) const { }
     };
 
     inline unsigned int __globals_index;
     static inline auto __globals() { return hilti::rt::detail::moduleGlobals<__globals_t>(__globals_index); }
-    extern void __hook_Acknowledgement___on_0x25_done_0x7fae51021580(hilti::rt::ValueReference<TFTP::Acknowledgement>& __self);
-    extern void __hook_Data___on_0x25_done_0x7fae4c43b140(hilti::rt::ValueReference<TFTP::Data>& __self);
-    extern void __hook_Error___on_0x25_done_0x7fae51025c60(hilti::rt::ValueReference<TFTP::Error>& __self);
-    extern void __hook_Request___on_0x25_done_0x7fae5101bd40(hilti::rt::ValueReference<TFTP::Request>& __self);
-    extern void __hook_Request___on_0x25_done_0x7fae510284d0(hilti::rt::ValueReference<TFTP::Request>& __self);
+    extern void __hook_Acknowledgement___on_0x25_done_0x7f8ff2c36060(hilti::rt::ValueReference<TFTP::Acknowledgement>& __self);
+    extern void __hook_Data___on_0x25_done_0x7f8ff2c30e30(hilti::rt::ValueReference<TFTP::Data>& __self);
+    extern void __hook_Error___on_0x25_done_0x7f8ff2c36bf0(hilti::rt::ValueReference<TFTP::Error>& __self);
+    extern void __hook_Request___on_0x25_done_0x7f8ff2c36cb0(hilti::rt::ValueReference<TFTP::Request>& __self);
+    extern void __hook_Request___on_0x25_done_0x7f8ff2c3a350(hilti::rt::ValueReference<TFTP::Request>& __self);
     extern void __init_globals(hilti::rt::Context* ctx);
     extern void __register_module();
 }
 
 namespace __hlt::type_info { namespace { 
-    const hilti::rt::TypeInfo __ti_TFTP_Acknowledgement = { "TFTP::Acknowledgement", "TFTP::Acknowledgement", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Acknowledgement, num), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Data = { "TFTP::Data", "TFTP::Data", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Data, num), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "data", &hilti::rt::type_info::bytes, offsetof(TFTP::Data, data), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Error = { "TFTP::Error", "TFTP::Error", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "code", &hilti::rt::type_info::uint16, offsetof(TFTP::Error, code), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "msg", &hilti::rt::type_info::bytes, offsetof(TFTP::Error, msg), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Opcode = { "TFTP::Opcode", "TFTP::Opcode", hilti::rt::type_info::Enum(std::vector<hilti::rt::type_info::enum_::Label>({hilti::rt::type_info::enum_::Label{ "RRQ", 1 }, hilti::rt::type_info::enum_::Label{ "WRQ", 2 }, hilti::rt::type_info::enum_::Label{ "DATA", 3 }, hilti::rt::type_info::enum_::Label{ "ACK", 4 }, hilti::rt::type_info::enum_::Label{ "ERROR", 5 }, hilti::rt::type_info::enum_::Label{ "Undef", -1 }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Packet = { "TFTP::Packet", "TFTP::Packet", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "op", &type_info::__ti_TFTP_Opcode, offsetof(TFTP::Packet, op), false, hilti::rt::type_info::struct_::Field::accessor_optional<TFTP::Opcode>() }, hilti::rt::type_info::struct_::Field{ "rrq", &type_info::__ti_value_refx30TFTP_Requestx2abool_is_readx2b, offsetof(TFTP::Packet, rrq), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "wrq", &type_info::__ti_value_refx30TFTP_Requestx2abool_is_readx2b, offsetof(TFTP::Packet, wrq), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "data", &type_info::__ti_value_refx30TFTP_Data, offsetof(TFTP::Packet, data), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Data>>() }, hilti::rt::type_info::struct_::Field{ "ack", &type_info::__ti_value_refx30TFTP_Acknowledgement, offsetof(TFTP::Packet, ack), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>>() }, hilti::rt::type_info::struct_::Field{ "error", &type_info::__ti_value_refx30TFTP_Error, offsetof(TFTP::Packet, error), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Error>>() }, hilti::rt::type_info::struct_::Field{ "__sink", &type_info::__ti_spicy_rt_SinkState, offsetof(TFTP::Packet, __sink), true }, hilti::rt::type_info::struct_::Field{ "__filters", &type_info::__ti_strong_refx30spicy_rt_Filters, offsetof(TFTP::Packet, __filters), true }})) };
-    const hilti::rt::TypeInfo __ti_TFTP_Request = { "TFTP::Request", "TFTP::Request", hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "filename", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, filename), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }, hilti::rt::type_info::struct_::Field{ "mode", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, mode), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
-    const hilti::rt::TypeInfo __ti_spicy_rt_Filters = { "spicy_rt::Filters", "spicy_rt::Filters", hilti::rt::type_info::Library() };
-    const hilti::rt::TypeInfo __ti_spicy_rt_SinkState = { "spicy_rt::SinkState", "spicy_rt::SinkState", hilti::rt::type_info::Library() };
-    const hilti::rt::TypeInfo __ti_strong_refx30spicy_rt_Filters = { {}, "strong_ref<spicy_rt::Filters>", hilti::rt::type_info::StrongReference(&type_info::__ti_spicy_rt_Filters, hilti::rt::type_info::StrongReference::accessor<spicy::rt::filter::detail::Filters>()) };
-    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Acknowledgement = { {}, "value_ref<TFTP::Acknowledgement>", hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Acknowledgement, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Acknowledgement>()) };
-    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Data = { {}, "value_ref<TFTP::Data>", hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Data, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Data>()) };
-    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Error = { {}, "value_ref<TFTP::Error>", hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Error, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Error>()) };
-    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Requestx2abool_is_readx2b = { {}, "value_ref<TFTP::Request(bool is_read)>", hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Request, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Request>()) };
+    const hilti::rt::TypeInfo __ti_TFTP_Acknowledgement = { "TFTP::Acknowledgement", "TFTP::Acknowledgement", new hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Acknowledgement, num), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Data = { "TFTP::Data", "TFTP::Data", new hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "num", &hilti::rt::type_info::uint16, offsetof(TFTP::Data, num), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "data", &hilti::rt::type_info::bytes, offsetof(TFTP::Data, data), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Error = { "TFTP::Error", "TFTP::Error", new hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "code", &hilti::rt::type_info::uint16, offsetof(TFTP::Error, code), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::integer::safe<uint16_t>>() }, hilti::rt::type_info::struct_::Field{ "msg", &hilti::rt::type_info::bytes, offsetof(TFTP::Error, msg), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Opcode = { "TFTP::Opcode", "TFTP::Opcode", new hilti::rt::type_info::Enum(std::vector<hilti::rt::type_info::enum_::Label>({hilti::rt::type_info::enum_::Label{ "RRQ", 1 }, hilti::rt::type_info::enum_::Label{ "WRQ", 2 }, hilti::rt::type_info::enum_::Label{ "DATA", 3 }, hilti::rt::type_info::enum_::Label{ "ACK", 4 }, hilti::rt::type_info::enum_::Label{ "ERROR", 5 }, hilti::rt::type_info::enum_::Label{ "Undef", -1 }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Packet = { "TFTP::Packet", "TFTP::Packet", new hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "op", &type_info::__ti_TFTP_Opcode, offsetof(TFTP::Packet, op), false, hilti::rt::type_info::struct_::Field::accessor_optional<TFTP::Opcode>() }, hilti::rt::type_info::struct_::Field{ "rrq", &type_info::__ti_value_refx30TFTP_Request, offsetof(TFTP::Packet, rrq), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "wrq", &type_info::__ti_value_refx30TFTP_Request, offsetof(TFTP::Packet, wrq), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Request>>() }, hilti::rt::type_info::struct_::Field{ "data", &type_info::__ti_value_refx30TFTP_Data, offsetof(TFTP::Packet, data), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Data>>() }, hilti::rt::type_info::struct_::Field{ "ack", &type_info::__ti_value_refx30TFTP_Acknowledgement, offsetof(TFTP::Packet, ack), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>>() }, hilti::rt::type_info::struct_::Field{ "error", &type_info::__ti_value_refx30TFTP_Error, offsetof(TFTP::Packet, error), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::ValueReference<__hlt::TFTP::Error>>() }, hilti::rt::type_info::struct_::Field{ "__sink", &type_info::__ti_spicy_rt_SinkState, offsetof(TFTP::Packet, __sink), true }, hilti::rt::type_info::struct_::Field{ "__filters", &type_info::__ti_strong_refx30spicy_rt_Filters, offsetof(TFTP::Packet, __filters), true }})) };
+    const hilti::rt::TypeInfo __ti_TFTP_Request = { "TFTP::Request", "TFTP::Request", new hilti::rt::type_info::Struct(std::vector<hilti::rt::type_info::struct_::Field>({hilti::rt::type_info::struct_::Field{ "filename", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, filename), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }, hilti::rt::type_info::struct_::Field{ "mode", &hilti::rt::type_info::bytes, offsetof(TFTP::Request, mode), false, hilti::rt::type_info::struct_::Field::accessor_optional<hilti::rt::Bytes>() }})) };
+    const hilti::rt::TypeInfo __ti_spicy_rt_Filters = { "spicy_rt::Filters", "spicy_rt::Filters", new hilti::rt::type_info::Library() };
+    const hilti::rt::TypeInfo __ti_spicy_rt_SinkState = { "spicy_rt::SinkState", "spicy_rt::SinkState", new hilti::rt::type_info::Library() };
+    const hilti::rt::TypeInfo __ti_strong_refx30spicy_rt_Filters = { {}, "strong_ref<spicy_rt::Filters>", new hilti::rt::type_info::StrongReference(&type_info::__ti_spicy_rt_Filters, hilti::rt::type_info::StrongReference::accessor<spicy::rt::filter::detail::Filters>()) };
+    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Acknowledgement = { {}, "value_ref<TFTP::Acknowledgement>", new hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Acknowledgement, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Acknowledgement>()) };
+    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Data = { {}, "value_ref<TFTP::Data>", new hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Data, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Data>()) };
+    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Error = { {}, "value_ref<TFTP::Error>", new hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Error, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Error>()) };
+    const hilti::rt::TypeInfo __ti_value_refx30TFTP_Request = { {}, "value_ref<TFTP::Request>", new hilti::rt::type_info::ValueReference(&type_info::__ti_TFTP_Request, hilti::rt::type_info::ValueReference::accessor<__hlt::TFTP::Request>()) };
 } }
 
 namespace hilti::rt::detail::adl {
@@ -399,6 +409,11 @@ inline void __hlt::TFTP::Acknowledgement::__on_num(const hilti::rt::integer::saf
     return __hlt::TFTP::__hook_Acknowledgement___on_num(__dd, __self);
 }
 
+inline auto __hlt::TFTP::Acknowledgement::__str__() -> std::optional<std::string> {
+    auto __self = TFTP::Acknowledgement::__self();
+    return __hlt::TFTP::__hook_Acknowledgement___str__(__self);
+}
+
 inline void __hlt::TFTP::Data::__on_0x25_done() {
     auto __self = TFTP::Data::__self();
     return __hlt::TFTP::__hook_Data___on_0x25_done(__self);
@@ -424,6 +439,11 @@ inline void __hlt::TFTP::Data::__on_num(const hilti::rt::integer::safe<uint16_t>
     return __hlt::TFTP::__hook_Data___on_num(__dd, __self);
 }
 
+inline auto __hlt::TFTP::Data::__str__() -> std::optional<std::string> {
+    auto __self = TFTP::Data::__self();
+    return __hlt::TFTP::__hook_Data___str__(__self);
+}
+
 inline void __hlt::TFTP::Error::__on_0x25_done() {
     auto __self = TFTP::Error::__self();
     return __hlt::TFTP::__hook_Error___on_0x25_done(__self);
@@ -447,6 +467,11 @@ inline void __hlt::TFTP::Error::__on_code(const hilti::rt::integer::safe<uint16_
 inline void __hlt::TFTP::Error::__on_msg(const hilti::rt::Bytes& __dd) {
     auto __self = TFTP::Error::__self();
     return __hlt::TFTP::__hook_Error___on_msg(__dd, __self);
+}
+
+inline auto __hlt::TFTP::Error::__str__() -> std::optional<std::string> {
+    auto __self = TFTP::Error::__self();
+    return __hlt::TFTP::__hook_Error___str__(__self);
 }
 
 inline void __hlt::TFTP::Packet::__on_0x25_done() {
@@ -514,6 +539,11 @@ inline void __hlt::TFTP::Packet::__on_wrq(const hilti::rt::ValueReference<__hlt:
     return __hlt::TFTP::__hook_Packet___on_wrq(__dd, __self);
 }
 
+inline auto __hlt::TFTP::Packet::__str__() -> std::optional<std::string> {
+    auto __self = TFTP::Packet::__self();
+    return __hlt::TFTP::__hook_Packet___str__(__self);
+}
+
 inline void __hlt::TFTP::Request::__on_0x25_done() {
     auto __self = TFTP::Request::__self();
     return __hlt::TFTP::__hook_Request___on_0x25_done(__self);
@@ -539,123 +569,128 @@ inline void __hlt::TFTP::Request::__on_mode(const hilti::rt::Bytes& __dd) {
     return __hlt::TFTP::__hook_Request___on_mode(__dd, __self);
 }
 
-extern void __hlt::spicy_hooks_TFTP::__hook_Acknowledgement___on_0x25_done_0x7fae51021580(hilti::rt::ValueReference<TFTP::Acknowledgement>& __self) {
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13");
-    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_ack_0x7fae4d82a970)) ) {
-          __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13");
+inline auto __hlt::TFTP::Request::__str__() -> std::optional<std::string> {
+    auto __self = TFTP::Request::__self();
+    return __hlt::TFTP::__hook_Request___str__(__self);
+}
+
+extern void __hlt::spicy_hooks_TFTP::__hook_Acknowledgement___on_0x25_done_0x7f8ff2c36060(hilti::rt::ValueReference<TFTP::Acknowledgement>& __self) {
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13");
+    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_ack_0x7f9012011370)) ) {
+          __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13");
         return;
     }
 
     hilti::rt::Vector<::zeek::ValPtr> args;
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13");
-    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13");
-    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).num, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_ack_0x7fae4d82a970, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13");
-    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_ack_0x7fae4d82a970, std::move(args), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:13"));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13");
+    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13");
+    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).num, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:13:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_ack_0x7f9012011370, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13");
+    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_ack_0x7f9012011370, std::move(args), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:13"));
 }
 
-extern void __hlt::spicy_hooks_TFTP::__hook_Data___on_0x25_done_0x7fae4c43b140(hilti::rt::ValueReference<TFTP::Data>& __self) {
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12");
-    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7fae4d82a3a0)) ) {
-          __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12");
+extern void __hlt::spicy_hooks_TFTP::__hook_Data___on_0x25_done_0x7f8ff2c30e30(hilti::rt::ValueReference<TFTP::Data>& __self) {
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12");
+    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7f9012010da0)) ) {
+          __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12");
         return;
     }
 
     hilti::rt::Vector<::zeek::ValPtr> args;
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12");
-    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12");
-    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).num, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7fae4d82a3a0, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).data, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7fae4d82a3a0, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12");
-    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7fae4d82a3a0, std::move(args), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:12"));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12");
+    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12");
+    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).num, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:12:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7f9012010da0, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).data, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:12:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7f9012010da0, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12");
+    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_data_0x7f9012010da0, std::move(args), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:12"));
 }
 
-extern void __hlt::spicy_hooks_TFTP::__hook_Error___on_0x25_done_0x7fae51025c60(hilti::rt::ValueReference<TFTP::Error>& __self) {
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14");
-    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7fae4d82af40)) ) {
-          __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14");
+extern void __hlt::spicy_hooks_TFTP::__hook_Error___on_0x25_done_0x7f8ff2c36bf0(hilti::rt::ValueReference<TFTP::Error>& __self) {
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14");
+    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7f9012011940)) ) {
+          __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14");
         return;
     }
 
     hilti::rt::Vector<::zeek::ValPtr> args;
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14");
-    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14");
-    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).code, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7fae4d82af40, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).msg, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7fae4d82af40, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14");
-    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7fae4d82af40, std::move(args), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:14"));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14");
+    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14");
+    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).code, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:14:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7f9012011940, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).msg, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:14:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7f9012011940, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14");
+    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_error_0x7f9012011940, std::move(args), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:14"));
 }
 
-extern void __hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7fae5101bd40(hilti::rt::ValueReference<TFTP::Request>& __self) {
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-    if ( ! (__self->__p_is_read) ) {
-          __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-        return;
-    }
-
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7fae4d829800)) ) {
-          __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-        return;
-    }
-
-    hilti::rt::Vector<::zeek::ValPtr> args;
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).filename, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7fae4d829800, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).mode, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7fae4d829800, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9");
-    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7fae4d829800, std::move(args), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:9"));
-}
-
-extern void __hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7fae510284d0(hilti::rt::ValueReference<TFTP::Request>& __self) {
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
+extern void __hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7f8ff2c36cb0(hilti::rt::ValueReference<TFTP::Request>& __self) {
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
     if ( ! (! (__self->__p_is_read)) ) {
-          __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
+          __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
         return;
     }
 
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
-    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7fae4d829dd0)) ) {
-          __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
+    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7f90120107d0)) ) {
+          __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
         return;
     }
 
     hilti::rt::Vector<::zeek::ValPtr> args;
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
-    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
-    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).filename, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7fae4d829dd0, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
-    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).mode, "/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7fae4d829dd0, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10")), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10")));
-      __location__("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10");
-    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7fae4d829dd0, std::move(args), std::string("/Users/robin/work/spicy/spicy-tftp/src/tftp.evt:10"));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
+    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
+    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).filename, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:10:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7f90120107d0, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).mode, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:10:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7f90120107d0, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10");
+    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_write_request_0x7f90120107d0, std::move(args), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:10"));
+}
+
+extern void __hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7f8ff2c3a350(hilti::rt::ValueReference<TFTP::Request>& __self) {
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+    if ( ! (__self->__p_is_read) ) {
+          __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+        return;
+    }
+
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+    if ( ! (spicy::zeek::rt::have_handler(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7f9012010200)) ) {
+          __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+        return;
+    }
+
+    hilti::rt::Vector<::zeek::ValPtr> args;
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+    args.emplace_back(spicy::zeek::rt::current_conn(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+    args.emplace_back(spicy::zeek::rt::current_is_orig(std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).filename, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:9:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7f9012010200, hilti::rt::integer::safe<std::uint64_t>{2u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+    args.emplace_back(spicy::zeek::rt::to_val(hilti::rt::optional::value((*__self).mode, "/Users/bbannier/src/spicy-tftp/src/tftp.evt:9:1"), spicy::zeek::rt::event_arg_type(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7f9012010200, hilti::rt::integer::safe<std::uint64_t>{3u}, std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9")), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9")));
+      __location__("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9");
+    spicy::zeek::rt::raise_event(spicy_hooks_TFTP::__globals()->__zeek_handler_tftp_read_request_0x7f9012010200, std::move(args), std::string("/Users/bbannier/src/spicy-tftp/src/tftp.evt:9"));
 }
 
 extern void __hlt::spicy_hooks_TFTP::__init_globals(hilti::rt::Context* ctx) {
     hilti::rt::detail::initModuleGlobals<__globals_t>(__globals_index);
-    __globals()->__zeek_handler_tftp_read_request_0x7fae4d829800 = spicy::zeek::rt::internal_handler(std::string("tftp::read_request"));
-    __globals()->__zeek_handler_tftp_write_request_0x7fae4d829dd0 = spicy::zeek::rt::internal_handler(std::string("tftp::write_request"));
-    __globals()->__zeek_handler_tftp_data_0x7fae4d82a3a0 = spicy::zeek::rt::internal_handler(std::string("tftp::data"));
-    __globals()->__zeek_handler_tftp_ack_0x7fae4d82a970 = spicy::zeek::rt::internal_handler(std::string("tftp::ack"));
-    __globals()->__zeek_handler_tftp_error_0x7fae4d82af40 = spicy::zeek::rt::internal_handler(std::string("tftp::error"));
+    __globals()->__zeek_handler_tftp_read_request_0x7f9012010200 = spicy::zeek::rt::internal_handler(std::string("tftp::read_request"));
+    __globals()->__zeek_handler_tftp_write_request_0x7f90120107d0 = spicy::zeek::rt::internal_handler(std::string("tftp::write_request"));
+    __globals()->__zeek_handler_tftp_data_0x7f9012010da0 = spicy::zeek::rt::internal_handler(std::string("tftp::data"));
+    __globals()->__zeek_handler_tftp_ack_0x7f9012011370 = spicy::zeek::rt::internal_handler(std::string("tftp::ack"));
+    __globals()->__zeek_handler_tftp_error_0x7f9012011940 = spicy::zeek::rt::internal_handler(std::string("tftp::error"));
 }
 
 extern void __hlt::spicy_hooks_TFTP::__register_module() { hilti::rt::detail::registerModule({ "spicy_hooks_TFTP", nullptr, &__init_globals, &__globals_index}); }
@@ -680,6 +715,6 @@ inline auto hilti::rt::detail::adl::to_string(__hlt::TFTP::Opcode x, adl::tag) -
 }
 
 /* __HILTI_LINKER_V1__
-{"joins":{"__hlt::TFTP::__hook_Acknowledgement___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Acknowledgement","type":"struct Acknowledgement"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Acknowledgement>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Acknowledgement___on_0x25_done_0x7fae51021580","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Acknowledgement___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Data___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Data","type":"struct Data"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Data>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Data___on_0x25_done_0x7fae4c43b140","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Data___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Error___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Error","type":"struct Error"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Error>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Error___on_0x25_done_0x7fae51025c60","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Error___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Request___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7fae5101bd40","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_done","priority":0},{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7fae510284d0","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_done","priority":0}]},"module":"spicy_hooks_TFTP","namespace":"__hlt::spicy_hooks_TFTP","path":"","version":1}
+{"joins":{"__hlt::TFTP::__hook_Acknowledgement___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Acknowledgement","type":"struct Acknowledgement"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Acknowledgement>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Acknowledgement___on_0x25_done_0x7f8ff2c36060","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Acknowledgement___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Data___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Data","type":"struct Data"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Data>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Data___on_0x25_done_0x7f8ff2c30e30","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Data___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Error___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Error","type":"struct Error"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Error>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Error___on_0x25_done_0x7f8ff2c36bf0","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Error___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Request___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7f8ff2c36cb0","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_done","priority":0},{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::spicy_hooks_TFTP::__hook_Request___on_0x25_done_0x7f8ff2c3a350","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_done","priority":0}]},"module":"spicy_hooks_TFTP","namespace":"__hlt::spicy_hooks_TFTP","path":"","version":1}
 */
 
