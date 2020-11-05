@@ -1,0 +1,17 @@
+Preparing a release
+-------------------
+
+In addition its own sources, this package contains additional
+[Spicy](https://github.com/zeek/spicy) source files and generated output. To
+prepare a release these files should be updated.
+
+Updating source files:
+
+    cp "${SPICY_SOURCE}"/zeek/lib/protocols/tftp.spicy src/
+    cp "${SPICY_SOURCE}"/zeek/plugin/lib/protocols/{tftp.evt,zeek_tftp.spicy} src/
+
+Updating generated files:
+
+    rm -rf src/autogen
+    ./configure --with-spicy="${SPICY_SOURCE}
+    make
