@@ -1,7 +1,7 @@
 Preparing a release
 -------------------
 
-In addition its own sources, this package contains additional
+In addition to its own sources, this package contains additional
 [Spicy](https://github.com/zeek/spicy) source files and generated output. To
 prepare a release these files should be updated.
 
