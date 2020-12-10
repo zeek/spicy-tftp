@@ -1,9 +1,14 @@
 
 #pragma once
 
+#if ZEEK_VERSION_NUMBER >= 30200
+
 #include <zeek/plugin/Plugin.h>
 
-#if ! (ZEEK_VERSION_NUMBER >= 30200)
+#else
+
+#include <plugin/Plugin.h>
+
 namespace zeek {
 namespace plugin {
 using ::plugin::Configuration;
