@@ -48,11 +48,11 @@ namespace picy::zeek::rt {
 }
 
 namespace picy::zeek::rt {
-    extern void register_protocol_analyzer(const std::string& name, const hilti::rt::Protocol& protocol, const hilti::rt::Vector<hilti::rt::Port>& ports, const std::string& parser_orig, const std::string& parser_resp, const std::string& replaces);
+    extern void register_packet_analyzer(const std::string& name, const std::string& parser);
 }
 
 namespace picy::zeek::rt {
-    extern auto to_val(const std::any& x, const ::zeek::TypePtr& target, const std::string& location) -> ::zeek::ValPtr;
+    extern void register_protocol_analyzer(const std::string& name, const hilti::rt::Protocol& protocol, const hilti::rt::Vector<hilti::rt::Port>& ports, const std::string& parser_orig, const std::string& parser_resp, const std::string& replaces);
 }
 
 namespace __hlt::spicy_init {

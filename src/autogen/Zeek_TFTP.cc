@@ -1,4 +1,4 @@
-// Begin of Zeek_TFTP (from "/Users/bbannier/src/spicy-tftp/src/zeek_tftp.spicy")
+// Begin of Zeek_TFTP (from "/Users/robin/work/spicy/spicy-tftp/src/zeek_tftp.spicy")
 // Compiled by HILTI version 0.4.0-branch
 
 #include <hilti/rt/compiler-setup.h>
@@ -65,6 +65,10 @@ namespace picy::zeek::rt {
 }
 
 namespace picy::zeek::rt {
+    extern void forward_packet(const hilti::rt::integer::safe<uint32_t>& identifier);
+}
+
+namespace picy::zeek::rt {
     extern auto is_orig() -> hilti::rt::Bool;
 }
 
@@ -87,7 +91,7 @@ namespace __hlt::TFTP {
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Acknowledgement>::self(this); }
         inline Acknowledgement();
         Acknowledgement(const Acknowledgement&) = default;
@@ -110,7 +114,7 @@ namespace __hlt::TFTP {
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Data>::self(this); }
         inline Data();
         Data(const Data&) = default;
@@ -133,7 +137,7 @@ namespace __hlt::TFTP {
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Error>::self(this); }
         inline Error();
         Error(const Error&) = default;
@@ -171,7 +175,7 @@ namespace __hlt::TFTP {
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         auto __parse_switch_case_1_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_2_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_3_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
@@ -201,7 +205,7 @@ namespace __hlt::TFTP {
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const hilti::rt::Bool& is_read) -> hilti::rt::stream::View;
         static auto parse2(hilti::rt::ValueReference<Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Request>::self(this); }
         hilti::rt::Bool __p_is_read{};
         inline Request();
@@ -233,7 +237,7 @@ namespace __hlt::TFTP {
     extern auto __hook_Error___str__(hilti::rt::ValueReference<__hlt::TFTP::Error>& __self) -> std::optional<std::string>;
     extern void __hook_Packet___on_0x25_done(hilti::rt::ValueReference<Packet>& __self);
     extern void __hook_Packet___on_0x25_done(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
-    extern void __hook_Packet___on_0x25_done_0x7f9011527d50(hilti::rt::ValueReference<Packet>& __self);
+    extern void __hook_Packet___on_0x25_done_e4e9(hilti::rt::ValueReference<Packet>& __self);
     extern void __hook_Packet___on_0x25_error(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_0x25_gap(const hilti::rt::integer::safe<uint64_t>& seq, const hilti::rt::integer::safe<uint64_t>& len, hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
     extern void __hook_Packet___on_0x25_init(hilti::rt::ValueReference<__hlt::TFTP::Packet>& __self);
@@ -259,8 +263,8 @@ namespace __hlt::TFTP {
 }
 
 namespace __hlt::Zeek_TFTP {
-    extern void __hook_Request___on_0x25_done_0x7f8ff2a640a0(hilti::rt::ValueReference<TFTP::Request>& __self);
-    extern void __hook_Request___on_0x25_error_0x7f8ff2a41eb0(hilti::rt::ValueReference<TFTP::Request>& __self);
+    extern void __hook_Request___on_0x25_done_853a(hilti::rt::ValueReference<TFTP::Request>& __self);
+    extern void __hook_Request___on_0x25_error_bae8(hilti::rt::ValueReference<TFTP::Request>& __self);
     extern void __register_module();
 }
 
@@ -287,25 +291,25 @@ namespace hilti::rt::detail::adl {
 namespace hlt::TFTP::TFTP::Acknowledgement {
     extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
     extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::TFTP::Data {
     extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
     extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::TFTP::Error {
     extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
     extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::TFTP::Packet {
     extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
     extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(spicy::rt::ParsedUnit& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::TFTP::Request {
@@ -553,13 +557,15 @@ inline auto __hlt::TFTP::Request::__str__() -> std::optional<std::string> {
     return __hlt::TFTP::__hook_Request___str__(__self);
 }
 
-extern void __hlt::Zeek_TFTP::__hook_Request___on_0x25_done_0x7f8ff2a640a0(hilti::rt::ValueReference<TFTP::Request>& __self) {
-      __location__("/Users/bbannier/src/spicy-tftp/src/zeek_tftp.spicy:8:26-9:29");
+extern void __hlt::Zeek_TFTP::__hook_Request___on_0x25_done_853a(hilti::rt::ValueReference<TFTP::Request>& __self) {
+    hilti::rt::detail::checkStack();
+      __location__("/Users/robin/work/spicy/spicy-tftp/src/zeek_tftp.spicy:8:26-9:29");
     spicy::zeek::rt::confirm_protocol();
 }
 
-extern void __hlt::Zeek_TFTP::__hook_Request___on_0x25_error_0x7f8ff2a41eb0(hilti::rt::ValueReference<TFTP::Request>& __self) {
-      __location__("/Users/bbannier/src/spicy-tftp/src/zeek_tftp.spicy:12:27-13:62");
+extern void __hlt::Zeek_TFTP::__hook_Request___on_0x25_error_bae8(hilti::rt::ValueReference<TFTP::Request>& __self) {
+    hilti::rt::detail::checkStack();
+      __location__("/Users/robin/work/spicy/spicy-tftp/src/zeek_tftp.spicy:12:27-13:62");
     spicy::zeek::rt::reject_protocol(std::string("error while parsing TFTP request"));
 }
 
@@ -585,6 +591,6 @@ inline auto hilti::rt::detail::adl::to_string(__hlt::TFTP::Opcode x, adl::tag) -
 }
 
 /* __HILTI_LINKER_V1__
-{"joins":{"__hlt::TFTP::__hook_Request___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::Zeek_TFTP::__hook_Request___on_0x25_done_0x7f8ff2a640a0","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Request___on_0x25_error":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::Zeek_TFTP::__hook_Request___on_0x25_error_0x7f8ff2a41eb0","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_error","priority":0}]},"module":"Zeek_TFTP","namespace":"__hlt::Zeek_TFTP","path":"/Users/bbannier/src/spicy-tftp/src/zeek_tftp.spicy","version":1}
+{"joins":{"__hlt::TFTP::__hook_Request___on_0x25_done":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::Zeek_TFTP::__hook_Request___on_0x25_done_853a","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_done","priority":0}],"__hlt::TFTP::__hook_Request___on_0x25_error":[{"aux_types":[{"forward_decl":true,"forward_decl_prio":false,"id":"__hlt::TFTP::Request","type":"struct Request"}],"callee":{"args":[{"id":"__self","type":"hilti::rt::ValueReference<TFTP::Request>&"}],"attribute":"","const":false,"id":"__hlt::Zeek_TFTP::__hook_Request___on_0x25_error_bae8","linkage":"extern","result":"void"},"declare_only":false,"id":"__hlt::TFTP::__hook_Request___on_0x25_error","priority":0}]},"module":"Zeek_TFTP","namespace":"__hlt::Zeek_TFTP","path":"/Users/robin/work/spicy/spicy-tftp/src/zeek_tftp.spicy","version":1}
 */
 
