@@ -1,5 +1,5 @@
 // Begin of spicy_hooks_Zeek_TFTP
-// Compiled by HILTI version 0.4.0-branch
+// Compiled by HILTI version 0.4.0-1255
 
 #include <hilti/rt/compiler-setup.h>
 

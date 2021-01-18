@@ -1,5 +1,5 @@
 // Begin of Zeek_TFTP (from "/Users/robin/work/spicy/spicy-tftp/src/zeek_tftp.spicy")
-// Compiled by HILTI version 0.4.0-branch
+// Compiled by HILTI version 0.4.0-1255
 
 #include <hilti/rt/compiler-setup.h>
 
