@@ -1,5 +1,5 @@
 // Begin of TFTP (from "/Users/robin/work/spicy/spicy-tftp/src/tftp.spicy")
-// Compiled by HILTI version 0.4.0-1255
+// Compiled by HILTI version 0.4.0-1422
 
 #include <hilti/rt/compiler-setup.h>
 
@@ -57,9 +57,9 @@ namespace __hlt::TFTP {
         spicy::rt::sink::detail::State* __sink{};
         hilti::rt::StrongReference<spicy::rt::filter::detail::Filters> __filters{};
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse2(hilti::rt::ValueReference<Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse2(hilti::rt::ValueReference<Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
         auto __parse_switch_case_1_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_2_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
         auto __parse_switch_case_3_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
@@ -87,9 +87,9 @@ namespace __hlt::TFTP {
         void __on_0x25_error();
         auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const hilti::rt::Bool& is_read) -> hilti::rt::stream::View;
-        static auto parse2(hilti::rt::ValueReference<Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context, const hilti::rt::Bool& is_read) -> hilti::rt::stream::View;
+        static auto parse2(hilti::rt::ValueReference<Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Request>::self(this); }
         hilti::rt::Bool __p_is_read{};
         inline Request();
@@ -112,9 +112,9 @@ namespace __hlt::TFTP {
         void __on_0x25_error();
         auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse2(hilti::rt::ValueReference<Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse2(hilti::rt::ValueReference<Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Data>::self(this); }
         inline Data();
         Data(const Data&) = default;
@@ -133,9 +133,9 @@ namespace __hlt::TFTP {
         void __on_0x25_error();
         auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse2(hilti::rt::ValueReference<Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse2(hilti::rt::ValueReference<Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Acknowledgement>::self(this); }
         inline Acknowledgement();
         Acknowledgement(const Acknowledgement&) = default;
@@ -156,9 +156,9 @@ namespace __hlt::TFTP {
         void __on_0x25_error();
         auto __str__() -> std::optional<std::string>;
         auto __parse_stage1(hilti::rt::ValueReference<hilti::rt::Stream>& __data, hilti::rt::stream::View __cur, hilti::rt::Bool __trim, hilti::rt::integer::safe<int64_t> __lah, hilti::rt::stream::SafeConstIterator __lahe) -> std::tuple<hilti::rt::stream::View, hilti::rt::integer::safe<int64_t>, hilti::rt::stream::SafeConstIterator>;
-        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse2(hilti::rt::ValueReference<Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
-        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View;
+        static auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse2(hilti::rt::ValueReference<Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
+        static auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View;
         inline auto __self() { return hilti::rt::ValueReference<Error>::self(this); }
         inline Error();
         Error(const Error&) = default;
@@ -240,31 +240,31 @@ namespace hilti::rt::detail::adl {
 }
 
 namespace hlt::TFTP::Acknowledgement {
-    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::Data {
-    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::Error {
-    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::Packet {
-    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
-    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
+    extern auto parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
 }
 
 namespace hlt::TFTP::Request {
-    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable;
+    extern auto parse2(hilti::rt::ValueReference<__hlt::TFTP::Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable;
 }
 
 namespace __hlt::TFTP {
@@ -379,7 +379,7 @@ inline auto __hlt::TFTP::Acknowledgement::__str__() -> std::optional<std::string
     return __hlt::TFTP::__hook_Acknowledgement___str__(__self);
 }
 
-extern auto __hlt::TFTP::Acknowledgement::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Acknowledgement::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement> unit = hilti::rt::reference::make_value<__hlt::TFTP::Acknowledgement>((__hlt::TFTP::Acknowledgement()));
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
@@ -393,7 +393,7 @@ extern auto __hlt::TFTP::Acknowledgement::parse1(hilti::rt::ValueReference<hilti
     return ncur;
 }
 
-extern auto __hlt::TFTP::Acknowledgement::parse2(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Acknowledgement::parse2(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
     hilti::rt::integer::safe<int64_t> lahead = hilti::rt::integer::safe<std::int64_t>{0};
@@ -406,7 +406,7 @@ extern auto __hlt::TFTP::Acknowledgement::parse2(hilti::rt::ValueReference<__hlt
     return ncur;
 }
 
-extern auto __hlt::TFTP::Acknowledgement::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Acknowledgement::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement> unit = hilti::rt::reference::make_value<__hlt::TFTP::Acknowledgement>((__hlt::TFTP::Acknowledgement()));
     spicy::rt::ParsedUnit::initialize((*gunit), unit, &type_info::__ti_TFTP_Acknowledgement);
@@ -496,7 +496,7 @@ inline auto __hlt::TFTP::Data::__str__() -> std::optional<std::string> {
     return __hlt::TFTP::__hook_Data___str__(__self);
 }
 
-extern auto __hlt::TFTP::Data::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Data::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Data> unit = hilti::rt::reference::make_value<__hlt::TFTP::Data>((__hlt::TFTP::Data()));
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
@@ -510,7 +510,7 @@ extern auto __hlt::TFTP::Data::parse1(hilti::rt::ValueReference<hilti::rt::Strea
     return ncur;
 }
 
-extern auto __hlt::TFTP::Data::parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Data::parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
     hilti::rt::integer::safe<int64_t> lahead = hilti::rt::integer::safe<std::int64_t>{0};
@@ -523,7 +523,7 @@ extern auto __hlt::TFTP::Data::parse2(hilti::rt::ValueReference<__hlt::TFTP::Dat
     return ncur;
 }
 
-extern auto __hlt::TFTP::Data::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Data::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Data> unit = hilti::rt::reference::make_value<__hlt::TFTP::Data>((__hlt::TFTP::Data()));
     spicy::rt::ParsedUnit::initialize((*gunit), unit, &type_info::__ti_TFTP_Data);
@@ -630,7 +630,7 @@ inline auto __hlt::TFTP::Error::__str__() -> std::optional<std::string> {
     return __hlt::TFTP::__hook_Error___str__(__self);
 }
 
-extern auto __hlt::TFTP::Error::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Error::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Error> unit = hilti::rt::reference::make_value<__hlt::TFTP::Error>((__hlt::TFTP::Error()));
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
@@ -644,7 +644,7 @@ extern auto __hlt::TFTP::Error::parse1(hilti::rt::ValueReference<hilti::rt::Stre
     return ncur;
 }
 
-extern auto __hlt::TFTP::Error::parse2(hilti::rt::ValueReference<__hlt::TFTP::Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Error::parse2(hilti::rt::ValueReference<__hlt::TFTP::Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
     hilti::rt::integer::safe<int64_t> lahead = hilti::rt::integer::safe<std::int64_t>{0};
@@ -657,7 +657,7 @@ extern auto __hlt::TFTP::Error::parse2(hilti::rt::ValueReference<__hlt::TFTP::Er
     return ncur;
 }
 
-extern auto __hlt::TFTP::Error::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Error::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Error> unit = hilti::rt::reference::make_value<__hlt::TFTP::Error>((__hlt::TFTP::Error()));
     spicy::rt::ParsedUnit::initialize((*gunit), unit, &type_info::__ti_TFTP_Error);
@@ -957,7 +957,7 @@ inline auto __hlt::TFTP::Packet::__str__() -> std::optional<std::string> {
     return __hlt::TFTP::__hook_Packet___str__(__self);
 }
 
-extern auto __hlt::TFTP::Packet::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Packet::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Packet> unit = hilti::rt::reference::make_value<__hlt::TFTP::Packet>((__hlt::TFTP::Packet()));
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
@@ -971,7 +971,7 @@ extern auto __hlt::TFTP::Packet::parse1(hilti::rt::ValueReference<hilti::rt::Str
     return ncur;
 }
 
-extern auto __hlt::TFTP::Packet::parse2(hilti::rt::ValueReference<__hlt::TFTP::Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Packet::parse2(hilti::rt::ValueReference<__hlt::TFTP::Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
     hilti::rt::integer::safe<int64_t> lahead = hilti::rt::integer::safe<std::int64_t>{0};
@@ -984,7 +984,7 @@ extern auto __hlt::TFTP::Packet::parse2(hilti::rt::ValueReference<__hlt::TFTP::P
     return ncur;
 }
 
-extern auto __hlt::TFTP::Packet::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Packet::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::ValueReference<__hlt::TFTP::Packet> unit = hilti::rt::reference::make_value<__hlt::TFTP::Packet>((__hlt::TFTP::Packet()));
     spicy::rt::ParsedUnit::initialize((*gunit), unit, &type_info::__ti_TFTP_Packet);
@@ -1110,7 +1110,7 @@ inline auto __hlt::TFTP::Request::__str__() -> std::optional<std::string> {
     return __hlt::TFTP::__hook_Request___str__(__self);
 }
 
-extern auto __hlt::TFTP::Request::parse2(hilti::rt::ValueReference<__hlt::TFTP::Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::stream::View {
+extern auto __hlt::TFTP::Request::parse2(hilti::rt::ValueReference<__hlt::TFTP::Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::stream::View {
     hilti::rt::detail::checkStack();
     hilti::rt::stream::View ncur = (cur ? hilti::rt::optional::value(cur, "") : (*data).view());
     hilti::rt::integer::safe<int64_t> lahead = hilti::rt::integer::safe<std::int64_t>{0};
@@ -1133,7 +1133,7 @@ extern void __hlt::TFTP::__init_module() { __hlt::TFTP::__register_TFTP_Packet()
 
 extern void __hlt::TFTP::__register_TFTP_Packet() {
     hilti::rt::detail::checkStack();
-    TFTP::Packet::__parser = spicy::rt::Parser(std::string("TFTP::Packet"), hlt::TFTP::Packet::parse1, hlt::TFTP::Packet::parse2, hlt::TFTP::Packet::parse3, &type_info::__ti_TFTP_Packet, std::string(""), hilti::rt::Vector<spicy::rt::MIMEType>({}), hilti::rt::Vector<spicy::rt::ParserPort>({}));
+    TFTP::Packet::__parser = spicy::rt::Parser(std::string("TFTP::Packet"), hlt::TFTP::Packet::parse1, hlt::TFTP::Packet::parse2, hlt::TFTP::Packet::parse3, hilti::rt::Null(), &type_info::__ti_TFTP_Packet, std::string(""), hilti::rt::Vector<spicy::rt::MIMEType>({}), hilti::rt::Vector<spicy::rt::ParserPort>({}));
     spicy::rt::detail::registerParser(TFTP::Packet::__parser, hilti::rt::StrongReference<__hlt::TFTP::Packet>());
 }
 
@@ -1170,11 +1170,11 @@ inline auto hilti::rt::detail::adl::to_string(__hlt::TFTP::Opcode x, adl::tag) -
     }
 }
 
-extern auto hlt::TFTP::Acknowledgement::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Acknowledgement::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Acknowledgement::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Acknowledgement::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1182,11 +1182,11 @@ extern auto hlt::TFTP::Acknowledgement::parse1(hilti::rt::ValueReference<hilti::
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Acknowledgement::parse2(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Acknowledgement::parse2(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Acknowledgement::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Acknowledgement::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1194,11 +1194,11 @@ extern auto hlt::TFTP::Acknowledgement::parse2(hilti::rt::ValueReference<__hlt::
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Acknowledgement::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Acknowledgement::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Acknowledgement::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Acknowledgement::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1206,11 +1206,11 @@ extern auto hlt::TFTP::Acknowledgement::parse3(hilti::rt::ValueReference<spicy::
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Data::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Data::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Data::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Data::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1218,11 +1218,11 @@ extern auto hlt::TFTP::Data::parse1(hilti::rt::ValueReference<hilti::rt::Stream>
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Data::parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Data::parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Data::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Data::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1230,11 +1230,11 @@ extern auto hlt::TFTP::Data::parse2(hilti::rt::ValueReference<__hlt::TFTP::Data>
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Data::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Data::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Data::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Data::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1242,11 +1242,11 @@ extern auto hlt::TFTP::Data::parse3(hilti::rt::ValueReference<spicy::rt::ParsedU
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Error::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Error::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Error::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Error::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1254,11 +1254,11 @@ extern auto hlt::TFTP::Error::parse1(hilti::rt::ValueReference<hilti::rt::Stream
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Error::parse2(hilti::rt::ValueReference<__hlt::TFTP::Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Error::parse2(hilti::rt::ValueReference<__hlt::TFTP::Error>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Error::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Error::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1266,11 +1266,11 @@ extern auto hlt::TFTP::Error::parse2(hilti::rt::ValueReference<__hlt::TFTP::Erro
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Error::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Error::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Error::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Error::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1278,11 +1278,11 @@ extern auto hlt::TFTP::Error::parse3(hilti::rt::ValueReference<spicy::rt::Parsed
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Packet::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Packet::parse1(hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Packet::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Packet::parse1(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1290,11 +1290,11 @@ extern auto hlt::TFTP::Packet::parse1(hilti::rt::ValueReference<hilti::rt::Strea
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Packet::parse2(hilti::rt::ValueReference<__hlt::TFTP::Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Packet::parse2(hilti::rt::ValueReference<__hlt::TFTP::Packet>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Packet::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Packet::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1302,11 +1302,11 @@ extern auto hlt::TFTP::Packet::parse2(hilti::rt::ValueReference<__hlt::TFTP::Pac
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Packet::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Packet::parse3(hilti::rt::ValueReference<spicy::rt::ParsedUnit>& gunit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(gunit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Packet::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Packet::parse3(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));
@@ -1314,11 +1314,11 @@ extern auto hlt::TFTP::Packet::parse3(hilti::rt::ValueReference<spicy::rt::Parse
     return std::move(*r);
 }
 
-extern auto hlt::TFTP::Request::parse2(hilti::rt::ValueReference<__hlt::TFTP::Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur) -> hilti::rt::Resumable {
-    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur));
+extern auto hlt::TFTP::Request::parse2(hilti::rt::ValueReference<__hlt::TFTP::Request>& unit, hilti::rt::ValueReference<hilti::rt::Stream>& data, const std::optional<hilti::rt::stream::View>& cur, const std::optional<spicy::rt::UnitContext>& context) -> hilti::rt::Resumable {
+    auto args = std::make_tuple(::hilti::rt::resumable::detail::copyArg(unit), ::hilti::rt::resumable::detail::copyArg(data), ::hilti::rt::resumable::detail::copyArg(cur), ::hilti::rt::resumable::detail::copyArg(context));
     auto args_on_heap = std::make_shared<decltype(args)>(std::move(args));
-    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> std::any {
-        return __hlt::TFTP::Request::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap));
+    auto cb = [args_on_heap](hilti::rt::resumable::Handle* r) -> hilti::rt::any {
+        return __hlt::TFTP::Request::parse2(std::get<0>(*args_on_heap), std::get<1>(*args_on_heap), std::get<2>(*args_on_heap), std::get<3>(*args_on_heap));
     };
 
     auto r = std::make_unique<hilti::rt::Resumable>(std::move(cb));

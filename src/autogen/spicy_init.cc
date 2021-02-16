@@ -1,5 +1,5 @@
 // Begin of spicy_init
-// Compiled by HILTI version 0.4.0-1255
+// Compiled by HILTI version 0.4.0-1422
 
 #include <hilti/rt/compiler-setup.h>
 

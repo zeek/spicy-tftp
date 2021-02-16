@@ -1,5 +1,5 @@
 // Begin of __linker__
-// Compiled by HILTI version 0.4.0-1255
+// Compiled by HILTI version 0.4.0-1422
 
 #include <hilti/rt/compiler-setup.h>
 
@@ -73,7 +73,7 @@ namespace __hlt::spicy_hooks_TFTP {
     extern void __hook_Request___on_0x25_done_3cee(hilti::rt::ValueReference<TFTP::Request>& __self);
 }
 
-const char HILTI_EXPORT HILTI_WEAK * __hlto_library_version = R"({"created":1610977474.964915,"debug":false,"hilti_version":400,"magic":"v1","optimize":true})";
+const char HILTI_EXPORT HILTI_WEAK * __hlto_library_version = R"({"created":1613477851.564714,"debug":false,"hilti_version":400,"magic":"v1","optimize":true})";
 
 void __hlt::TFTP::__hook_Acknowledgement___on_0x25_done(hilti::rt::ValueReference<__hlt::TFTP::Acknowledgement>& __self) { __hlt::spicy_hooks_TFTP::__hook_Acknowledgement___on_0x25_done_3cf1(__self); }
 
