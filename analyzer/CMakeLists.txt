@@ -3,5 +3,5 @@
 spicy_add_analyzer(
     NAME TFTP
     PACKAGE_NAME TFTP
-    SOURCES analyzer.spicy analyzer.evt zeek_analyzer.spicy
+    SOURCES TFTP.spicy TFTP.evt zeek_TFTP.spicy
     SCRIPTS main.zeek __load__.zeek)
