@@ -2,6 +2,7 @@
 
 # @TEST-EXEC: env >env
 # @TEST-EXEC: zeek -r ${TRACES}/tftp_rrq.pcap ${PACKAGE} %INPUT
+# @TEST-EXEC: cat conn.log | zeek-cut uid service > conn.log.tmp && mv conn.log.tmp conn.log
 # @TEST-EXEC: btest-diff conn.log
 # @TEST-EXEC: btest-diff tftp.log
 #
