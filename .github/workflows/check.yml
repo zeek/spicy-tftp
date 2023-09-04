@@ -10,12 +10,13 @@ jobs:
     strategy:
       matrix:
         version:
+          - zeek:6.0
           - zeek-dev:latest
 
       fail-fast: false
 
     runs-on: ubuntu-latest
-    container: zeekurity/${{ matrix.version }}
+    container: zeek/${{ matrix.version }}
 
     steps:
       - uses: actions/checkout@v2
